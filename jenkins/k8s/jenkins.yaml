@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: master
-        image: jenkins/jenkins:2.67
+        image: jenkins/jenkins:lts
         ports:
         - containerPort: 8080
         - containerPort: 50000
@@ -45,21 +45,21 @@ spec:
               name: jenkins
               key: options
         - name: JAVA_OPTS
-          value: '-Xmx1400m'
+          value: '-Xmx2048m'
         volumeMounts:
         - mountPath: /var/jenkins_home
-          name: jenkins-home
+          name: jenkins-home-blue
         resources:
           limits:
-            cpu: 500m
-            memory: 1500Mi
+            cpu: 1000m
+            memory: 2000Mi
           requests:
-            cpu: 500m
-            memory: 1500Mi
+            cpu: 1000m
+            memory: 2000Mi
       volumes:
-      - name: jenkins-home
+      - name: jenkins-home-blue
         gcePersistentDisk:
-          pdName: jenkins-home
+          pdName: jenkins-home-blue
           fsType: ext4
           partition: 1
 # [END jenkins_deployment]
