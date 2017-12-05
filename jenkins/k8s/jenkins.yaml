@@ -48,7 +48,7 @@ spec:
           value: '-Xmx2048m'
         volumeMounts:
         - mountPath: /var/jenkins_home
-          name: jenkins-home-blue
+          name: jenkins-home-gelb
         resources:
           limits:
             cpu: 1000m
@@ -57,9 +57,9 @@ spec:
             cpu: 1000m
             memory: 2000Mi
       volumes:
-      - name: jenkins-home-blue
+      - name: jenkins-home-gelb
         gcePersistentDisk:
-          pdName: jenkins-home-blue
+          pdName: jenkins-home-gelb
           fsType: ext4
           partition: 1
 # [END jenkins_deployment]
